@@ -1,0 +1,9 @@
+# HIDE folder - contains spoilers, full outlines, detailed character data, world secrets
+chat.txt
+reference/   
+# OS files
+.DS_Store
+Thumbs.db
+*.tmp
+.trea/
+.trae/

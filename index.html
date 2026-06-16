@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>终端之梦 ~ Terminal Phantasm ~</title>
+<style>
+:root{--bg:#e8e4db;--s:#fffef8;--t:#2c2416;--t2:#6b5a4e;--a:#8b4513;--l:#c41e3a;--b:#d4c5a9;--h:rgba(139,69,19,.06);--ac:rgba(139,69,19,.12);--sb:#f5f0e8;--tb:#0c0c14;--tg:#00ee77;--tp:#ff5555;--cn:#8b7355;--sh:0 2px 12px rgba(0,0,0,.08)}
+body.dark{--bg:#1a1a20;--s:#22222a;--t:#d4cfc8;--t2:#9a9488;--a:#c9a87c;--l:#e8556d;--b:#3a3830;--h:rgba(201,168,124,.08);--ac:rgba(201,168,124,.16);--sb:#1e1e26;--cn:#8b8070;--sh:0 2px 12px rgba(0,0,0,.3)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t);font-family:'Noto Serif SC','Noto Serif JP','SimSun',Georgia,serif;font-size:16px;line-height:2;display:flex;justify-content:center;transition:background .3s,color .3s;padding:16px;min-height:100vh}
+.win{width:100%;max-width:1100px;height:92vh;max-height:860px;background:var(--s);border-radius:12px;border:1px solid var(--b);box-shadow:var(--sh);display:flex;flex-direction:column;overflow:hidden;transition:background .3s}
+.tb{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--b);flex-shrink:0;background:var(--sb)}
+.ds{display:flex;gap:7px;margin-right:12px}.d{width:11px;height:11px;border-radius:50%}.d.r{background:#ff5f56}.d.y{background:#ffbd2e}.d.g{background:#27c93f}
+.ttl{font-size:12px;color:var(--t2);font-weight:600;letter-spacing:1px;flex:1;text-align:center}
+.tbtn{background:var(--h);border:1px solid var(--b);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;color:var(--t2);font-family:inherit}
+.tbtn:hover{background:var(--ac)}
+.bd{display:flex;flex:1;overflow:hidden}
+.sb{width:170px;flex-shrink:0;background:var(--sb);border-right:1px solid var(--b);padding:12px 8px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sl{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--t2);padding:8px 10px 3px;opacity:.5}
+.ni{padding:8px 10px;border-radius:6px;cursor:pointer;font-size:12px;color:var(--t);border:none;background:transparent;text-align:left;font-family:inherit;transition:background .15s}
+.ni:hover{background:var(--h)}.ni.on{background:var(--ac);font-weight:700;color:var(--a)}
+.mn{flex:1;overflow-y:auto;overflow-x:hidden}
+.pn{display:none;padding:28px 36px 56px;animation:fi .25s ease}.pn.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ch{text-align:center;margin-bottom:36px;padding-bottom:22px;border-bottom:2px solid var(--b)}
+.ch .cn{font-size:12px;letter-spacing:3px;color:var(--a);margin-bottom:6px}
+.ch h2{font-size:22px;font-weight:700}.ch .cs{font-size:13px;color:var(--t2);font-style:italic;margin-top:4px}
+.st{font-size:17px;font-weight:700;text-align:center;margin:36px 0 18px}.st::before{content:'◆ ';color:var(--a);font-size:12px}.st::after{content:' ◆';color:var(--a);font-size:12px}
+p{margin-bottom:1em;text-indent:2em}p.ni{text-indent:0}
+.cn{color:var(--cn);font-size:16px;margin-bottom:1.1em;text-indent:2em}.cn::before{content:'※ ';font-size:12px;opacity:.5}
+.th{color:var(--t2);font-style:italic}
+.dv{text-align:center;margin:26px 0;color:var(--b);font-size:15px;letter-spacing:5px}
+.ix{color:var(--l);border-bottom:1px dashed var(--l);cursor:pointer}
+.ix.person{color:var(--a);border-color:rgba(139,69,19,.35)}.ix.term{color:#2e6b8f;border-color:rgba(46,107,143,.35)}.ix.place{color:#5a8a3c;border-color:rgba(90,138,60,.35)}
+#pp{position:fixed;z-index:9999;max-width:280px;background:var(--s);border:1px solid var(--b);border-radius:8px;box-shadow:var(--sh);padding:12px 14px;font-size:11px;line-height:1.6;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .18s,transform .18s}
+#pp.on{opacity:1;pointer-events:auto;transform:translateY(0)}
+#pp .pn{font-size:13px;font-weight:700;color:var(--a);margin-bottom:3px}
+#pp .pt{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:3px}
+#pp .pt span{font-size:9px;background:var(--h);border:1px solid var(--b);border-radius:3px;padding:1px 5px}
+#pp .pd{color:var(--t);font-size:10px}
+#pp .pc{position:absolute;top:4px;right:7px;cursor:pointer;font-size:12px;color:var(--t2);background:none;border:none;opacity:.5}
+.tm{background:#0c0c0c;border-radius:8px;margin:14px 0;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.4);font-family:'Cascadia Code','JetBrains Mono','Fira Code','Consolas',monospace;font-size:12px;line-height:1.6;border:1px solid #2a2a2a}
+.tm-h{background:#1a1a1a;padding:6px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #333}
+.tm-d{width:10px;height:10px;border-radius:50%}.tm-d.r{background:#ff5f56}.tm-d.y{background:#ffbd2e}.tm-d.g{background:#27c93f}
+.tm-t{color:#999;font-size:10px;margin-left:6px;font-family:system-ui}
+.tm-b{padding:12px 16px;color:#cccccc;white-space:pre-wrap;word-break:break-all;background:#0c0c0c}
+.tm-b .pr{color:#00ff88}.tm-b .cm{color:#ffffff}.tm-b .out{color:#7eb8da}.tm-b .wn{color:#ffcc00}.tm-b .er{color:#ff5555}.tm-b .inf{color:#888888}
+.chc{background:var(--h);border:2px solid var(--b);border-radius:10px;padding:18px 22px;margin:22px 0;text-align:center}
+.chc .cl{font-size:11px;color:var(--t2);letter-spacing:2px;margin-bottom:10px}
+.cb{display:block;width:100%;padding:10px 14px;margin:5px 0;border:1px solid var(--b);border-radius:6px;background:var(--s);cursor:pointer;font-family:inherit;font-size:13px;text-align:left;transition:background .15s,transform .15s;color:var(--t)}
+.cb:hover{background:var(--ac);transform:translateX(2px)}
+.cb .lt{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;margin-right:7px;font-weight:700;font-size:10px;color:#fff}
+.cb.a .lt{background:#c41e3a}.cb.b .lt{background:#2e6b8f}.cb.c .lt{background:#5a8a3c}
+.cb .cs{display:block;font-size:10px;color:var(--t2);margin-top:1px;margin-left:27px;opacity:.6}
+.cd{background:var(--h);border:1px solid var(--b);padding:12px 16px;font-size:12px;color:var(--t2);text-align:center;border-radius:8px;margin:16px 0}
+.cd .un{color:var(--l);cursor:pointer;margin-left:8px;font-size:10px;border-bottom:1px dashed var(--l)}
+.pg-page{display:none}.pg-page.on{display:block;animation:fi .2s ease}
+.pg-nav{display:flex;justify-content:center;align-items:center;gap:12px;padding:16px 0;margin-top:20px;border-top:1px solid var(--b)}
+.pg-nav button{background:var(--h);border:1px solid var(--b);border-radius:6px;padding:6px 16px;cursor:pointer;font-size:12px;color:var(--t);font-family:inherit}
+.pg-nav button:hover{background:var(--ac)}.pg-nav button:disabled{opacity:.3;cursor:default}
+.pg-nav .pg-info{font-size:11px;color:var(--t2)}
+.loading{text-align:center;padding:40px;color:var(--t2);font-style:italic}
+#tk{display:none;position:fixed;bottom:16px;right:20px;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:8px 12px;font-size:9px;box-shadow:var(--sh);z-index:500;cursor:pointer;min-width:120px}
+#tk .tt{font-weight:700;color:var(--a);margin-bottom:3px;font-size:9px;letter-spacing:1px}
+#tk .ri{margin:2px 0}#tk .rb{height:3px;border-radius:2px;margin:2px 0;transition:width .3s}
+.rb.a{background:#c41e3a}.rb.k{background:#88bbdd}.rb.e{background:#5a9a5a}.rb.m{background:#8b5a9a}
+@media(max-width:768px){body{padding:6px}.win{height:96vh;border-radius:8px}.sb{width:120px;padding:10px 6px}.ni{font-size:11px;padding:6px 8px}.pn{padding:20px 14px 48px}.ch h2{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="win">
+<div class="tb"><div class="ds"><div class="d r"></div><div class="d y"></div><div class="d g"></div></div><div class="ttl">终端之梦 ~ Terminal Phantasm ~</div><button class="tbtn" onclick="T()">🌓</button></div>
+<div class="bd">
+<div class="sb" id="sb">
+<div class="sl">序章</div><button class="ni on" data-p="prologue">零の目覚め</button>
+<div class="sl">Chapter 01</div><button class="ni" data-p="ch01p1">Part 1 · 星導学園</button><button class="ni" data-p="ch01p2">Part 2 · 魔法演習</button><button class="ni" data-p="ch01p3">Part 3 · 星の兆し</button>
+</div>
+<div class="mn" id="mn">
+<div class="pn on" id="p-prologue"><div class="loading">加载中...</div></div>
+<div class="pn" id="p-ch01p1"><div class="loading">加载中...</div></div>
+<div class="pn" id="p-ch01p2"><div class="loading">加载中...</div></div>
+<div class="pn" id="p-ch01p3"><div class="loading">加载中...</div></div>
+</div></div></div>
+<div id="pp"><button class="pc" onclick="P.hide()">✕</button><div class="pn"></div><div class="pt"></div><div class="pd"></div></div>
+<div id="tk" style="display:none"><div class="tt" id="tktitle" style="cursor:pointer">📊 観測記録</div><div id="tkc"></div><div style="font-size:8px;opacity:.4;margin-top:4px;cursor:pointer" id="tkclear">点击标题收起 · 点击此处清除记录</div></div>
+<script>
+(function(){if(localStorage.getItem('tp_theme')==='dark')document.body.classList.add('dark')})();
+function T(){document.body.classList.toggle('dark');localStorage.setItem('tp_theme',document.body.classList.contains('dark')?'dark':'light')}
+
+var IX={rei:{n:'神代 零',t:['主人公','F级','16岁','Observer #7','平民出身'],d:'亲生父母不明，由星ノ宮平凡的神代家收养。3岁起秘密使用终端能力，可读写世界底层代码。外表F级劣等生，实则观测者零时可发挥S级实力。左手腕有天生几何状印记。'},akane:{n:'天宮 朱音',t:['傲娇','幼驯染','火属性A+级','深红高马尾','琥珀瞳','黑丝裤袜'],d:'天宮分家长女，帝国五大家族之首的千金。10岁转学星ノ宮，在废坑与零偶遇。六年渐进式傲娇——对外完美优等生，对零全部崩坏。校服配黑色裤袜。'},koyuki:{n:'神代 小雪',t:['妹妹','天才','冰属性','银白短发','冰蓝瞳','151cm','白丝'],d:'零的妹妹，14岁。冰晶变异体质，14岁跳级帝都特别英才学院少年班。校服配白色小腿袜，私服配白色裤袜。全能型天赋怪。零就是她世界的中心。'},eruna:{n:'艾露娜·温德尔',t:['精灵族','学年首席','A+级风属性','淡金长发','翡翠瞳','过膝袜'],d:'精灵王国留学生，17岁。天生魔力视觉能看见粒子流动。知识欲极其旺盛，对恋爱概念完全天然。零的"共同研究者"。'},maya:{n:'黒鉄真夜',t:['魔族学妹','B+级暗属性','异色瞳','黑短袜','战斗天才'],d:'魔族学妹，14岁中等部三年。左深红右金异色瞳，极小二角为感情开关。暗属性战斗能力极强但理论苦手。'},sara:{n:'サラ',t:['兽人少女','猫耳','北方山脉出身'],d:'灰银发猫耳兽人少女，约14-15岁。在帝都魔晶工厂做黑工，工作效率异常高。北方山脉出身，可能知道与零出生地相关的线索。'},alice:{n:'アリス',t:['商社経営','市場通','姉御肌'],d:'25岁商社经营者，帝都中央市场。数字异常敏锐，零的商业伙伴。姉貴分的存在，无恋爱线。'},shiori:{n:'白羽栞',t:['Observer #6','时计塔','观测者'],d:'身份不明。偶尔出现在星導学園时计塔附近。似乎知道关于"观测者"的事情。详细信息待故事推进后解锁。'},eve:{n:'Eve',t:['AI助手','Terminal v1.0.7','机械理性'],d:'终端AI助手，3岁起绑定零。机械式应答，只返回必要信息，无感情表现。称零为Observer #7。'},kenichiro:{n:'神代 健一郎',t:['养父','镇公所户籍员','E级平民'],d:'零的养父。星ノ宮镇公所的小职员，性格温和。在诊所前发现被遗弃的零并收养。'},hoshinomiya:{n:'星ノ宮',t:['首都圏外縁','鉱山町','人口5万'],d:'帝都星京郊外约一小时车程的矿业小镇。帝国前五规模的魔矿矿山所在地。零的故乡。'},seido:{n:'星導学園',t:['顶级魔法学院','高中大学融合','魔力增幅装置','校舍区'],d:'帝国最古老权威魔法学院。高等部(2年)+专门部(3年)+研究部。校内魔力密度为外界3.2倍。设有家族寮，特待科学费全免。'},terminal:{n:'终端',t:['CLI命令行','底层代码访问','Token消耗','观测者效应'],d:'零3岁时觉醒的意识内命令行界面。可编译执行魔法脚本，操控世界底层代码。观测者越多功能越弱。'},observer:{n:'观测者效应',t:['终端最大限制','量子场干涉'],d:'周围人数越多终端越不稳。0人时S级输出，30人时F级，200人以上近乎失效。零在矿山废坑中通过反复实验实证。'},mana_rank:{n:'魔力等级',t:['S~F级','血统决定','7段評価'],d:'七级魔力评估体系。S级低于0.01%，A级约0.1%，F级约3%。魔法才能主要由血统决定。'},ril:{n:'利尔(Ril)',t:['货币','铜货·银货·晶货'],d:'帝国通用货币。平民午餐约50リル，月收平均3000-5000リル。晶货以魔晶为原料，用于高额交易。'},voidborn:{n:'虚空种',t:['世界公敌','魔力异常聚集'],d:'对所有使用魔力的生命体具有无差别敌意的危险存在。外形无固定形态。帝国军队的主要对抗目标。'}};
+var pp=document.getElementById('pp');
+var P={show(a,d){pp.querySelector('.pn').textContent=d.n;pp.querySelector('.pt').innerHTML=(d.t||[]).map(function(t){return'<span>'+t+'</span>'}).join('');pp.querySelector('.pd').textContent=d.d;var r=a.getBoundingClientRect(),l=r.left,t=r.bottom+6;if(l+280>innerWidth)l=innerWidth-288;if(t+160>innerHeight)t=r.top-170;if(l<4)l=4;if(t<4)t=4;pp.style.left=l+'px';pp.style.top=t+'px';pp.classList.add('on')},hide:function(){pp.classList.remove('on')}};
+document.addEventListener('click',function(e){if(!e.target.closest('.ix')&&!e.target.closest('#pp'))P.hide()});
+document.getElementById('mn').addEventListener('click',function(e){var el=e.target.closest('.ix');if(el){e.stopPropagation();var d=IX[el.dataset.ix];if(d)P.show(el,d)}});
+
+var cache={};
+var panelDefs={
+  prologue:{title:'序章 — 零の目覚め',subtitle:'「世界はコードでできている。ならば——」',files:['PROLOGUE/ep_00_zero.md','PROLOGUE/ep_01_hoshinomiya.md','PROLOGUE/ep_02_kakusei.md','PROLOGUE/ep_03_primary.md','PROLOGUE/ep_04_akane.md','PROLOGUE/ep_05_dungeon.md','PROLOGUE/ep_06_middle.md','PROLOGUE/ep_07_dream.md','PROLOGUE/ep_08_exam.md','PROLOGUE/ep_09_eve_end.md'],pgs:[0,3,6]},
+  ch01p1:{title:'Chapter 01 Part 1 — 星導学園',subtitle:'「知識は力だ。そして——力には代償が伴う。」',files:['chapter_01/part1/ep01.md','chapter_01/part1/ep02.md','chapter_01/part1/ep03.md','chapter_01/part1/ep04.md','chapter_01/part1/ep05.md','chapter_01/part1/ep06.md'],pgs:[0,3]},
+  ch01p2:{title:'Chapter 01 Part 2 — 魔法演習',subtitle:'「——君は、何を隠している？」',files:['chapter_01/part2/ep07.md','chapter_01/part2/ep08.md','chapter_01/part2/ep09.md','chapter_01/part2/ep10.md'],pgs:[0,2]},
+  ch01p3:{title:'Chapter 01 Part 3 — 星の兆し',subtitle:'「——俺は、この一ヶ月で変わる。」',files:['chapter_01/part3/ep11.md','chapter_01/part3/ep12.md','chapter_01/part3/ep13.md','chapter_01/part3/ep14.md'],pgs:[0,2]}
+};
+
+function md2html(md){
+  var lines=md.split('\n'),out='',inTerm=false,termTitle='',termLines=[],inP=false;
+  function flushP(){if(inP){out+='</p>\n';inP=false;}}
+  function flushTerm(){
+    if(termLines.length===0)return;
+    var title=termTitle||'Terminal';
+    out+='<div class="tm"><div class="tm-h"><div class="tm-d r"></div><div class="tm-d y"></div><div class="tm-d g"></div><span class="tm-t">'+title+'</span></div><div class="tm-b">';
+    for(var i=0;i<termLines.length;i++){
+      var tl=termLines[i];
+      if(tl===''){out+='\n';continue;}
+      if(/^&gt;\s/.test(tl)){out+='<span class="pr">&gt; </span><span class="cm">'+tl.replace(/^&gt;\s/,'')+'</span>\n';}
+      else if(/^\[WARNING:/.test(tl)){out+='<span class="wn">'+tl+'</span>\n';}
+      else if(/^\[ERROR:/.test(tl)||/^\[ALERT/.test(tl)){out+='<span class="er">'+tl+'</span>\n';}
+      else if(/^\[/.test(tl)){out+='<span class="out">'+tl+'</span>\n';}
+      else out+='<span class="inf">'+tl+'</span>\n';
+    }
+    out+='</div></div>\n';
+    termLines=[];termTitle='';inTerm=false;
+  }
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(inTerm){
+      if(/^```/.test(l)){flushTerm();continue;}
+      if(i===0||(termLines.length===0&&l.trim()==='')){termTitle=l.trim();continue;}
+      termLines.push(l);continue;
+    }
+    if(/^```terminal/.test(l)){flushP();inTerm=true;continue;}
+    if(/^```/.test(l)){flushP();out+='<pre>';var j=i+1;while(j<lines.length&&!/^```/.test(lines[j])){out+=lines[j]+'\n';j++;}i=j;out+='</pre>\n';continue;}
+    if(/^##\s/.test(l)){flushP();out+='<div class="st">'+l.replace(/^##\s/,'')+'</div>\n';continue;}
+    if(/^---\s*$/.test(l)||/^\*\*\*\s*$/.test(l)){flushP();out+='<div class="dv">＊ ＊ ＊</div>\n';continue;}
+    if(l.trim()===''){flushP();continue;}
+    if(/^<span class="ix/.test(l)||/^<div class="(ch|chc|cb|cd|dv|st|tm|pg)/.test(l)||/^<\/div>/.test(l)||/^<button/.test(l)){flushP();out+=l+'\n';continue;}
+    var txt=l.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`([^`]+)`/g,'<code>$1</code>');
+    if(!inP){out+='<p>';inP=true;}
+    else out+='<br>';
+    out+=txt;
+  }
+  flushP();flushTerm();return out;
+}
+
+async function loadPanel(id){
+  var el=document.getElementById('p-'+id);
+  el.innerHTML='<div class="loading">加载中...</div>';
+  var def=panelDefs[id];if(!def)return;
+  try{
+    var parts=[];var pgBreaks=def.pgs||[];
+    for(var i=0;i<def.files.length;i++){
+      var resp=await fetch(def.files[i]+'?t='+Date.now());if(!resp.ok)throw new Error(def.files[i]+' not found');
+      parts.push(md2html(await resp.text()));
+    }
+    var header='<div class="ch"><div class="cn">'+(id==='prologue'?'序章':'Chapter 01')+'</div><h2>'+def.title.split(' — ')[1]+'</h2><div class="cs">'+def.subtitle+'</div></div>\n';
+    var html='';var pg=0;
+    for(var i=0;i<parts.length;i++){
+      if(pgBreaks.indexOf(i)>=0&&i>0){html+='<!-- PG -->\n';pg++;}
+      html+=parts[i]+'\n';
+    }
+    el.innerHTML=header+html;
+    el.dataset.loaded='1';
+    PG(el);bindChoices(el);
+  }catch(e){el.innerHTML='<div class="loading">加载失败: '+e.message+'</div>';}
+}
+
+function PG(el){
+  var c=el.innerHTML.split('<!-- PG -->');if(c.length<2)return;
+  var h='';for(var i=0;i<c.length;i++){h+='<div class="pg-page'+(i===0?' on':'')+'" data-pg="'+i+'">'+c[i]+'</div>'}
+  h+='<div class="pg-nav"><button class="pg-prev" disabled>◀ 上一页</button><span class="pg-info">1 / '+c.length+'</span><button class="pg-next">下一页 ▶</button></div>';
+  el.innerHTML=h;var pg=0;
+  function go(n){pg=Math.max(0,Math.min(c.length-1,n));el.querySelectorAll('.pg-page').forEach(function(p,i){p.classList.toggle('on',i===pg)});el.querySelector('.pg-prev').disabled=pg===0;el.querySelector('.pg-next').disabled=pg===c.length-1;el.querySelector('.pg-info').textContent=(pg+1)+' / '+c.length;el.scrollTop=0;document.getElementById('mn').scrollTop=0}
+  el.querySelector('.pg-prev').onclick=function(){go(pg-1)};el.querySelector('.pg-next').onclick=function(){go(pg+1)};
+}
+
+var S={flags:{},choices:[]};
+try{var s=localStorage.getItem('tp_state');if(s){var p=JSON.parse(s);S.flags=p.flags||{};S.choices=p.choices||[]}}catch(e){}
+function sv(){try{localStorage.setItem('tp_state',JSON.stringify({flags:S.flags,choices:S.choices}))}catch(e){}}
+function ar(k,v){S.flags[k]=(S.flags[k]||0)+v;sv();upd()}function rr(k,v){S.flags[k]=Math.max(0,(S.flags[k]||0)-v);sv();upd()}
+var CC={ch01_elna:{label:'艾露娜的提案',opts:[{l:'接受协助 / 協力を受け入れる',r:{eruna:2},e:'学术协作者'},{l:'婉拒 / まだ誰も巻き込めない',r:{akane:1},e:'独自承担'}]},ch01_slave:{label:'籠の中の少女',opts:[{l:'无法忘记她 / 頭から離れない',r:{},e:'开启个人线'},{l:'无能为力 / どうにもできない',r:{},e:'暂缓'}]},ch01_alice_deal:{label:'Aliceとの取引',opts:[{l:'开始交易 / 取引を始める',r:{},e:'商业线启动'},{l:'先自己分析 / まずは分析',r:{},e:'独立摸索'}]},ch01_exam:{label:'考试公告后',opts:[{l:'与朱音对视点头 / 朱音と頷く',r:{akane:1},e:'朱音'},{l:'观察艾露娜 / エルナ観察',r:{eruna:1},e:'艾露娜'},{l:'思考攻略法 / 攻略法考える',r:{koyuki:1},e:'小雪'}]}};
+
+var pls=document.querySelectorAll('.pn'),nis=document.querySelectorAll('.ni');
+nis.forEach(function(b){b.addEventListener('click',function(){
+  var id=this.dataset.p;
+  nis.forEach(function(x){x.classList.remove('on')});this.classList.add('on');
+  pls.forEach(function(p){p.classList.remove('on')});
+  var t=document.getElementById('p-'+id);if(t){t.classList.add('on');t.scrollTop=0;loadPanel(id);document.getElementById('mn').scrollTop=0}
+})});
+
+function bindChoices(el){
+  el.addEventListener('click',function(e){
+    var b=e.target.closest('.cb');if(!b)return;
+    var u=e.target.closest('.un');if(u){undoChoice(u.dataset.cid);return;}
+    var cid=b.dataset.c,oi=parseInt(b.dataset.o),bl=CC[cid];if(!bl)return;var opt=bl.opts[oi];
+    var pi=S.choices.findIndex(function(c){return c.id===cid});
+    if(pi>=0){var old=S.choices[pi];if(old.r)Object.entries(old.r).forEach(function(e){rr(e[0],e[1])});S.choices.splice(pi,1)}
+    S.choices.push({id:cid,label:bl.label,chosen:opt.l,r:opt.r||{},e:opt.e});if(opt.r)Object.entries(opt.r).forEach(function(e){ar(e[0],e[1])});sv();
+    b.closest('.chc').innerHTML='<div class="cd">▸ 已選択：<b>'+opt.l+'</b> —— '+opt.e+' <span class="un" data-cid="'+cid+'">↩ 取り消し</span></div>';upd();
+  });
+}
+function undoChoice(cid){
+  var idx=S.choices.findIndex(function(c){return c.id===cid});if(idx<0)return;
+  var old=S.choices[idx];if(old.r)Object.entries(old.r).forEach(function(e){rr(e[0],e[1])});S.choices.splice(idx,1);sv();
+  var bl=CC[cid];if(!bl)return;var ls='ABCDEF',btns=bl.opts.map(function(o,i){return'<button class="cb '+ls[i].toLowerCase()+'" data-c="'+cid+'" data-o="'+i+'"><span class="lt">'+ls[i]+'</span>'+o.l+'</button>'}).join('');
+  document.querySelectorAll('.chc,.cd').forEach(function(c){if((c.querySelector('[data-c="'+cid+'"]')||c.querySelector('.un[data-cid="'+cid+'"]'))&&!c.classList.contains('chc'))c.outerHTML='<div class="chc"><div class="cl">⚡ 選択肢</div>'+btns+'<div class="ch">（選択後に取り消し可能）</div></div>'});
+}
+function upd(){
+  var rs=[{k:'akane',n:'朱音',c:'a'},{k:'koyuki',n:'小雪',c:'k'},{k:'eruna',n:'艾露娜',c:'e'},{k:'maya',n:'真夜',c:'m'}].filter(function(r){return S.flags[r.k]>0});
+  var el=document.getElementById('tk'),tc=document.getElementById('tkc');
+  if(!rs.length&&S.choices.length===0){el.style.display='none';return}
+  el.style.display='block';
+  var html='';
+  if(rs.length>0){
+    var mx=Math.max.apply(null,rs.map(function(r){return r.k==='koyuki'?S.flags[r.k]*1.5:S.flags[r.k]}));
+    html+=rs.map(function(r){return'<div class="ri">'+r.n+': '+'❤'.repeat(Math.min(S.flags[r.k],5))+'</div><div class="rb '+r.c+'" style="width:'+Math.round(S.flags[r.k]/mx*100)+'%"></div>'}).join('');
+  }
+  html+='<div style="font-size:8px;opacity:.5;margin-top:2px">'+S.choices.length+'回選択</div>';
+  tc.innerHTML=html;
+}upd();
+document.getElementById('tktitle').onclick=function(){var t=document.getElementById('tkc');t.style.display=t.style.display==='none'?'block':'none'};
+document.getElementById('tkclear').onclick=function(){S.flags={};S.choices=[];sv();upd();};
+loadPanel('prologue');
+</script>
+</body>
+</html>
