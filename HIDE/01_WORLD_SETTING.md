@@ -1,7 +1,21 @@
 # 01 — 世界观完全设定
 
-> 写作前必读。所有地理/国家/种族/历史/政治/经济/文化/法律细节均以此为准。
-> 与 `03_CHARACTERS.md` `02_MAGIC_SYSTEM.md` `04_TERMINAL_SYSTEM.md` 互相协调。
+> **⚠️ 本文件已拆分为模块化文件，此文件保留仅作历史存档参考。**
+> **请使用以下新文件（v5.0 模块化重构版）：**
+> - 世界基础（地理/种族/国家）→ [`01_WORLD_BASICS.md`](01_WORLD_BASICS.md)
+> - 魔法物理体系 → [`02_MAGIC_PHYSICS.md`](02_MAGIC_PHYSICS.md)
+> - 等级与教育体系 → [`03_MAGIC_RANKING_SCHOOL.md`](03_MAGIC_RANKING_SCHOOL.md)
+> - 故事线总览 → [`05_STORYLINES.md`](05_STORYLINES.md)
+> - 帝国线详情 → [`06_EMPIRE.md`](06_EMPIRE.md)
+> - 宗教线详情 → [`07_RELIGION.md`](07_RELIGION.md)
+> - 虚空种详情 → [`08_VOIDBORN.md`](08_VOIDBORN.md)
+> - 古神线详情 → [`09_ANCIENT_GODS.md`](09_ANCIENT_GODS.md)
+>
+> **导航中心**：[`00_MASTER_INDEX.md`](00_MASTER_INDEX.md)
+>
+> ---
+>
+> *以下内容为 v4.0 版本的原始整合文档。部分信息可能与最新模块存在出入，以各模块文件为准。*
 
 ---
 
