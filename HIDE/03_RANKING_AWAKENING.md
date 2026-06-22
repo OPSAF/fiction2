@@ -1,6 +1,6 @@
 # 星降りのコード・ウィザード — 魔法等级与教育体系
 
-> **版本**: v4.0（整合自 `02_MAGIC_SYSTEM.md` §9 + `01_WORLD_SETTING.md` 教育部分）
+> **版本**: v4.0（整合自 `91_LEGACY_MAGIC_SYSTEM.md` §9 + `90_LEGACY_WORLD_SETTING.md` 教育部分）
 > **定位**: 基础系统模块 — 等级制度·教育体系·觉醒机制·学校生活
 
 ---
@@ -376,11 +376,11 @@
 
 | 关联文件 | 关联内容 |
 |---------|---------|
-| [`02_MAGIC_PHYSICS.md`](./02_MAGIC_SYSTEM.md) | 魔法物理原理·粒子分类体系·生物魔法机制（MCCs/MRP）·隐形魔法场 |
-| [`04_TERMINAL_SYSTEM.md`](./04_TERMINAL_SYSTEM.md) | 终端系统·量子场参数编辑·零和白羽的特殊性·终端vs魔法的关系 |
-| [`05_STORYLINES.md`](./05_STORYLINES.md) | 故事线中各角色的等级定位·觉醒事件触发时机·觉醒者军事用途 |
-| [`10_CHARACTERS.md`](./10_CHARACTERS.md) | 各角色的具体等级数据·学历背景·选修方向·社团归属 |
-| [`01_WORLD_SETTING.md`](./01_WORLD_SETTING.md) | 第四篇政治结构·教皇厅对教育的控制·星導学園的军政地位 |
+| [`02_MAGIC_PHYSICS.md`](./91_LEGACY_MAGIC_SYSTEM.md) | 魔法物理原理·粒子分类体系·生物魔法机制（MCCs/MRP）·隐形魔法场 |
+| [`05_TERMINAL_SYSTEM.md`](./05_TERMINAL_SYSTEM.md) | 终端系统·量子场参数编辑·零和白羽的特殊性·终端vs魔法的关系 |
+| [`06_STORYLINES.md`](./06_STORYLINES.md) | 故事线中各角色的等级定位·觉醒事件触发时机·觉醒者军事用途 |
+| [`11_CHARACTERS.md`](./11_CHARACTERS.md) | 各角色的具体等级数据·学历背景·选修方向·社团归属 |
+| [`90_LEGACY_WORLD_SETTING.md`](./90_LEGACY_WORLD_SETTING.md) | 第四篇政治结构·教皇厅对教育的控制·星導学園的军政地位 |
 
 ---
 

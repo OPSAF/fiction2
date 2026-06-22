@@ -1,7 +1,7 @@
 # 魔法物理学 — 零粒子類与神粒子類
 
 > **定位**：魔法作为一种物理现象的完整科学描述
-> **来源**：从 `02_MAGIC_SYSTEM.md` 提取第1-8节及附录A
+> **来源**：从 `91_LEGACY_MAGIC_SYSTEM.md` 提取第1-8节及附录A
 > **术语体系**：统一使用「零粒子類」「神粒子類」
 
 ---
@@ -35,7 +35,7 @@
 2. 终端可以将地球物理学的框架**映射**到这个世界的魔法现象上——但这是事后归纳，不是预先编程
 3. 这种"映射"过程就是零的核心优势：用更先进的分析框架去理解一个落后时代的现象
 
-> 终端与魔法的详细关系 → [`04_TERMINAL_SYSTEM.md`](04_TERMINAL_SYSTEM.md)
+> 终端与魔法的详细关系 → [`05_TERMINAL_SYSTEM.md`](05_TERMINAL_SYSTEM.md)
 
 ### 1.2 双语言描述系统
 
@@ -415,7 +415,7 @@ MRPs结合环境中的游离CaP或摄入的魔法物质
 - 混合型极为罕见（<1%的有魔法能力人口）
 - 即使同一类型，个体差异也极大（如同样的"燃者"，有人只能点个火柴，有人能喷出熔岩流）
 
-> 觉醒者等级体系与非觉醒者评级 → [`03_MAGIC_RANKING_SCHOOL.md`](03_MAGIC_RANKING_SCHOOL.md)
+> 觉醒者等级体系与非觉醒者评级 → [`03_RANKING_AWAKENING.md`](03_RANKING_AWAKENING.md)
 
 ### 6.3 魔法的"呼吸"：日常代谢类比
 
@@ -546,7 +546,7 @@ MRPs结合环境中的游离CaP或摄入的魔法物质
   类比：修改游戏引擎的物理参数（重力系数、时间流速等）
 ```
 
-> 终端系统采用与神粒子類相同的量子场参数编辑原理，详见 [`04_TERMINAL_SYSTEM.md`](04_TERMINAL_SYSTEM.md)
+> 终端系统采用与神粒子類相同的量子场参数编辑原理，详见 [`05_TERMINAL_SYSTEM.md`](05_TERMINAL_SYSTEM.md)
 
 **具体例子**：
 
@@ -596,7 +596,7 @@ MRPs结合环境中的游离CaP或摄入的魔法物质
 
 | 本文件涵盖内容 | 详细展开位置 |
 |---------------|-------------|
-| 魔法等级体系（F~A / R~EX 双轨制、觉醒认证、学历资格） | → [`03_MAGIC_RANKING_SCHOOL.md`](03_MAGIC_RANKING_SCHOOL.md) |
-| 终端系统与魔法的关系（TNT vs C4、知识库缺陷、感知盲区） | → [`04_TERMINAL_SYSTEM.md`](04_TERMINAL_SYSTEM.md) |
+| 魔法等级体系（F~A / R~EX 双轨制、觉醒认证、学历资格） | → [`03_RANKING_AWAKENING.md`](03_RANKING_AWAKENING.md) |
+| 终端系统与魔法的关系（TNT vs C4、知识库缺陷、感知盲区） | → [`05_TERMINAL_SYSTEM.md`](05_TERMINAL_SYSTEM.md) |
 | 术语对照表（双语言） | → 分散于各模块对应章节 |
-| 完整魔法体系源文件 | → [`02_MAGIC_SYSTEM.md`](02_MAGIC_SYSTEM.md)（含第9/10/11/12节及附录B） |
+| 完整魔法体系源文件 | → [`91_LEGACY_MAGIC_SYSTEM.md`](91_LEGACY_MAGIC_SYSTEM.md)（含第9/10/11/12节及附录B） |

@@ -1,7 +1,7 @@
 # 05 — 上古种族设定（神话时代·一万年前）
 
 > 写作参考用。上古种族是现代各族的祖先。
-> 与 `01_WORLD_SETTING.md` `02_MAGIC_SYSTEM.md` `03_CHARACTERS.md` 互相协调。
+> 与 `90_LEGACY_WORLD_SETTING.md` `91_LEGACY_MAGIC_SYSTEM.md` `11_CHARACTERS.md` 互相协调。
 
 ---
 
@@ -469,19 +469,19 @@
 
 | 设定条目 | 出处 | 本文件是否一致 | 备注 |
 |----------|------|---------------|------|
-| 精灵自称天使后代 | `01_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
-| 魔族自称龙族后代 | `01_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
-| 人类自称海族后代 | `01_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
-| 兽族没有上古祖先 | `01_WORLD_SETTING.md` | ✅ 一致 | 解释了被歧视的理由 |
-| 上古种族现存极少 | `01_WORLD_SETTING.md` | ✅ 一致 | 天使<50·龙<30·海~100 |
-| "进化论"意识形态 | `01_WORLD_SETTING.md` | ✅ 一致 | 三国轴心的理论基础 |
-| 小雪的天使血统 | `07_TRUTH_APPENDIX.md` | ✅ 一致 | 静=纯血天使·小雪=半血 |
-| 静隐藏身份16年+ | `07_TRUTH_APPENDIX.md` | ✅ 一致 | 属于"隐匿"选项的纯血天使 |
-| 星之降临神话 | `01_WORLD_SETTING.md` | ✅ 一致 | 作为起源事件纳入正式历史分期 |
-| 星之文明/古代遗迹 | `01_WORLD_SETTING.md` | ✅ 一致 | 创世期~神战期的文明遗产 |
-| 魔導基層論石板 | `01_WORLD_SETTING.md` | ✅ 一致 | 可能是上古种族记录神粒子知识的载体 |
-| Observer #1 在上古时期活动 | `07_TRUTH_APPENDIX.md` | ✅ 一致 | #1进入时间=创世期附近 |
-| 零粒子300年前陨石降临 | `01_WORLD_SETTING.md` | ✅ 一致 | 作为独立事件纳入历史分期末端 |
+| 精灵自称天使后代 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
+| 魔族自称龙族后代 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
+| 人类自称海族后代 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 基因层面证实 |
+| 兽族没有上古祖先 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 解释了被歧视的理由 |
+| 上古种族现存极少 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 天使<50·龙<30·海~100 |
+| "进化论"意识形态 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 三国轴心的理论基础 |
+| 小雪的天使血统 | `13_TRUTH_APPENDIX.md` | ✅ 一致 | 静=纯血天使·小雪=半血 |
+| 静隐藏身份16年+ | `13_TRUTH_APPENDIX.md` | ✅ 一致 | 属于"隐匿"选项的纯血天使 |
+| 星之降临神话 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 作为起源事件纳入正式历史分期 |
+| 星之文明/古代遗迹 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 创世期~神战期的文明遗产 |
+| 魔導基層論石板 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 可能是上古种族记录神粒子知识的载体 |
+| Observer #1 在上古时期活动 | `13_TRUTH_APPENDIX.md` | ✅ 一致 | #1进入时间=创世期附近 |
+| 零粒子300年前陨石降临 | `90_LEGACY_WORLD_SETTING.md` | ✅ 一致 | 作为独立事件纳入历史分期末端 |
 
 ## 二、伏笔与扩展方向
 
@@ -534,10 +534,10 @@
 | 中文 | 英文 | 日文（如有） | 首次出现位置 |
 |------|------|-------------|--------------|
 | 神粒子 | God Particle | 神粒子（しんりゅうし） | 本文件 |
-| 零粒子 / 魔力粒子 | Zero Particle / Mana Particle | 零粒子（れりゅうし）/ 魔力粒子（まりょくりゅうし） | `02_MAGIC_SYSTEM.md` |
+| 零粒子 / 魔力粒子 | Zero Particle / Mana Particle | 零粒子（れりゅうし）/ 魔力粒子（まりょくりゅうし） | `91_LEGACY_MAGIC_SYSTEM.md` |
 | 上古三族 | The Three Ancient Races | 上古三種族（じょうこさんしゅぞく） | 本文件 |
-| 天使族 | Angels | 天使族（てんしぞく） | `01_WORLD_SETTING.md` |
-| 龙族 | Dragons | 龍族（りゅうぞく） | `01_WORLD_SETTING.md` |
-| 海族 | Sea Folk | 海族（かいぞく） | `01_WORLD_SETTING.md` |
-| 星之降临 | Starfall | 星の降臨（ほしのこうりん） | `01_WORLD_SETTING.md` |
+| 天使族 | Angels | 天使族（てんしぞく） | `90_LEGACY_WORLD_SETTING.md` |
+| 龙族 | Dragons | 龍族（りゅうぞく） | `90_LEGACY_WORLD_SETTING.md` |
+| 海族 | Sea Folk | 海族（かいぞく） | `90_LEGACY_WORLD_SETTING.md` |
+| 星之降临 | Starfall | 星の降臨（ほしのこうりん） | `90_LEGACY_WORLD_SETTING.md` |
 | 神话时代 | Mythic Age | 神話時代（しんわじだい） | 本文件 |

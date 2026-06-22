@@ -3,8 +3,8 @@
 > **⚠️ 本文件已拆分为模块化文件，此文件保留仅作历史存档参考。**
 > **请使用以下新文件（v5.0 模块化重构版）：**
 > - 魔法物理体系（粒子/物质/生物魔法/场）→ [`02_MAGIC_PHYSICS.md`](02_MAGIC_PHYSICS.md)
-> - 等级双轨制 + 教育体系 → [`03_MAGIC_RANKING_SCHOOL.md`](03_MAGIC_RANKING_SCHOOL.md)
-> - 终端系统 → [`04_TERMINAL_SYSTEM.md`](04_TERMINAL_SYSTEM.md)
+> - 等级双轨制 + 教育体系 → [`03_RANKING_AWAKENING.md`](03_RANKING_AWAKENING.md)
+> - 终端系统 → [`05_TERMINAL_SYSTEM.md`](05_TERMINAL_SYSTEM.md)
 >
 > **导航中心**：[`00_MASTER_INDEX.md`](00_MASTER_INDEX.md)
 >
@@ -876,7 +876,7 @@ MRPs结合环境中的游离CaP或摄入的魔法物质
 | 精确度 | 依赖直觉和情感状态 | **精确到参数级别**（理论上） |
 | 可重复性 | 波动较大（受情绪/体力影响） | **高度可重复**（同一代码=同一结果） |
 | 学习曲线 | 无法传授（个人体验） | **可以学习/记录/分享代码** |
-| 限制 | 生理负担极大 | Token/算力/采样限制（详见04_TERMINAL_SYSTEM.md） |
+| 限制 | 生理负担极大 | Token/算力/采样限制（详见05_TERMINAL_SYSTEM.md） |
 | 副作用 | 对身体的未知长期影响 | 目前未知（使用时间尚短） |
 
 ### 11.2 终端 vs 魔法：外表相似，本质不同
@@ -1108,7 +1108,7 @@ MRPs结合环境中的游离CaP或摄入的魔法物质
 - [ ] 终端长期使用的未知副作用
 - [ ] 觉醒者升阶的具体"关键事件"设计
 
-#### 故事线相关（详见01_WORLD_SETTING.md第八篇）
+#### 故事线相关（详见90_LEGACY_WORLD_SETTING.md第八篇）
 - [ ] 教皇的真实等级和完整能力设定
 - [ ] 虚空领袖的具体设计和命名
 - [ ] 三神的真实面目和"死亡/沉睡"的真相
