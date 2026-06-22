@@ -1773,6 +1773,21 @@ mana_veil是零"扮猪吃老虎"战略的**地基**——没有它·零在日常
 
 ---
 
-> **文档版本**：v2.0
+> **文档版本**：v2.0（v5.0模块化重构版）
 > **最后更新**：对应Ch01特别考试准备阶段
 > **下一步更新预期**：Ch02后（注入系统相关内容可能解锁）
+
+---
+
+## 交叉引用
+
+本文件是「基础系统 — 规则书」的第4号模块。以下为关联模块速查：
+
+| 关联话题 | → 详情位置 |
+|---------|-----------|
+| 魔法物理原理（零粒子類·第五力·MCC/MRP） | [`02_MAGIC_PHYSICS.md`](02_MAGIC_PHYSICS.md) §6（生物魔法）·§8（神粒子類） |
+| 等级制度（F~A非觉醒者 / R~EX觉醒者） | [`03_MAGIC_RANKING_SCHOOL.md`](03_MAGIC_RANKING_SCHOOL.md) §9（双轨制） |
+| 零的"F级/魔力0"设定 | [`10_CHARACTERS.md`](03_CHARACTERS.md) · 零的基本信息 |
+| 白羽的"以假乱真"mana_veil | [`10_CHARACTERS.md`](03_CHARACTERS.md) · 白羽栞 · 终端使用风格 |
+| 故事线中终端的作用 | [`05_STORYLINES.md`](05_STORYLINES.md) · 主线（白羽） |
+| 终端 vs 魔法的本质差异 | [`02_MAGIC_PHYSICS.md`](02_MAGIC_PHYSICS.md) 附录A（三种"魔法"对比表） |
