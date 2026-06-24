@@ -46,6 +46,12 @@ p{margin-bottom:1em;text-indent:2em}p.ni{text-indent:0}
 .tm-t{color:#999;font-size:10px;margin-left:6px;font-family:system-ui}
 .tm-b{padding:12px 16px;color:#cccccc;white-space:pre-wrap;word-break:break-all;background:#0c0c0c}
 .tm-b .pr{color:#00ff88}.tm-b .cm{color:#ffffff}.tm-b .out{color:#7eb8da}.tm-b .wn{color:#ffcc00}.tm-b .er{color:#ff5555}.tm-b .inf{color:#888888}
+	.tm.win{background:#f0f0f0;border:1px solid #c0c0c0;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+	.tm.win .tm-h{background:linear-gradient(180deg,#0078d7,#0063b1);border-bottom:1px solid #004d8f}
+	.tm.win .tm-t{color:#fff;font-weight:600}
+	.tm.win .tm-b{background:#1e1e1e;color:#d4d4d4}
+	.tm.win .tm-b .pr{color:#569cd6}.tm.win .tm-b .cm{color:#dcdcaa}.tm.win .tm-b .out{color:#4ec9b0}.tm.win .tm-b .wn{color:#ce9178}.tm.win .tm-b .er{color:#f44747}.tm.win .tm-b .inf{color:#808080}
+	.tm.win .tm-d.r{background:#ff5f56}.tm.win .tm-d.y{background:#ffbd2e}.tm.win .tm-d.g{background:#27c93f}
 .chc{background:var(--h);border:2px solid var(--b);border-radius:10px;padding:18px 22px;margin:22px 0;text-align:center}
 .chc .cl{font-size:11px;color:var(--t2);letter-spacing:2px;margin-bottom:10px}
 .cb{display:block;width:100%;padding:10px 14px;margin:5px 0;border:1px solid var(--b);border-radius:6px;background:var(--s);cursor:pointer;font-family:inherit;font-size:13px;text-align:left;transition:background .15s,transform .15s;color:var(--t)}
@@ -96,19 +102,19 @@ document.getElementById('mn').addEventListener('click',function(e){var el=e.targ
 
 var cache={};
 var panelDefs={
-  prologue:{title:'序章 — 零の目覚め',subtitle:'「世界はコードでできている。ならば——」',files:['PROLOGUE/ep_00_zero.md','PROLOGUE/ep_01_hoshinomiya.md','PROLOGUE/ep_02_kakusei.md','PROLOGUE/ep_03_primary.md','PROLOGUE/ep_04_akane.md','PROLOGUE/ep_05_dungeon.md','PROLOGUE/ep_06_middle.md','PROLOGUE/ep_07_dream.md','PROLOGUE/ep_08_exam.md','PROLOGUE/ep_09_eve_end.md'],pgs:[0,3,6]},
+  prologue:{title:'序章 — 零の目覚め',subtitle:'「世界はコードでできている。ならば——」',files:['PROLOGUE/ep_00_zero.md','PROLOGUE/ep_01_hoshinomiya.md','PROLOGUE/ep_02_kakusei.md','PROLOGUE/ep_03_primary.md'],pgs:[0,2]},
   ch01p1:{title:'Chapter 01 Part 1 — 星導学園',subtitle:'「知識は力だ。そして——力には代償が伴う。」',files:['chapter_01/part1/ep01.md','chapter_01/part1/ep02.md','chapter_01/part1/ep03.md','chapter_01/part1/ep04.md','chapter_01/part1/ep05.md','chapter_01/part1/ep06.md'],pgs:[0,3]},
   ch01p2:{title:'Chapter 01 Part 2 — 魔法演習',subtitle:'「——君は、何を隠している？」',files:['chapter_01/part2/ep07.md','chapter_01/part2/ep08.md','chapter_01/part2/ep09.md','chapter_01/part2/ep10.md'],pgs:[0,2]},
   ch01p3:{title:'Chapter 01 Part 3 — 星の兆し',subtitle:'「——俺は、この一ヶ月で変わる。」',files:['chapter_01/part3/ep11.md','chapter_01/part3/ep12.md','chapter_01/part3/ep13.md','chapter_01/part3/ep14.md'],pgs:[0,2]}
 };
 
 function md2html(md){
-  var lines=md.split('\n'),out='',inTerm=false,termTitle='',termLines=[],inP=false;
+  var lines=md.split('\n'),out='',inTerm=false,termTitle='',termLines=[],termType='',inP=false;
   function flushP(){if(inP){out+='</p>\n';inP=false;}}
   function flushTerm(){
     if(termLines.length===0)return;
-    var title=termTitle||'Terminal';
-    out+='<div class="tm"><div class="tm-h"><div class="tm-d r"></div><div class="tm-d y"></div><div class="tm-d g"></div><span class="tm-t">'+title+'</span></div><div class="tm-b">';
+    var title=termTitle||'Terminal';var tclass='tm'+(termType==='win'?' win':'');
+    out+='<div class="'+tclass+'"><div class="tm-h"><div class="tm-d r"></div><div class="tm-d y"></div><div class="tm-d g"></div><span class="tm-t">'+title+'</span></div><div class="tm-b">';
     for(var i=0;i<termLines.length;i++){
       var tl=termLines[i];
       if(tl===''){out+='\n';continue;}
@@ -119,7 +125,7 @@ function md2html(md){
       else out+='<span class="inf">'+tl+'</span>\n';
     }
     out+='</div></div>\n';
-    termLines=[];termTitle='';inTerm=false;
+    termLines=[];termTitle='';termType='';inTerm=false;
   }
   for(var i=0;i<lines.length;i++){
     var l=lines[i];
@@ -128,7 +134,7 @@ function md2html(md){
       if(i===0||(termLines.length===0&&l.trim()==='')){termTitle=l.trim();continue;}
       termLines.push(l);continue;
     }
-    if(/^```terminal/.test(l)){flushP();inTerm=true;continue;}
+    if(/^```terminal/.test(l)){flushP();inTerm=true;termType=/^```terminal-win/.test(l)?'win':'';continue;}
     if(/^```/.test(l)){flushP();out+='<pre>';var j=i+1;while(j<lines.length&&!/^```/.test(lines[j])){out+=lines[j]+'\n';j++;}i=j;out+='</pre>\n';continue;}
     if(/^##\s/.test(l)){flushP();out+='<div class="st">'+l.replace(/^##\s/,'')+'</div>\n';continue;}
     if(/^---\s*$/.test(l)||/^\*\*\*\s*$/.test(l)){flushP();out+='<div class="dv">＊ ＊ ＊</div>\n';continue;}
@@ -177,7 +183,10 @@ var S={flags:{},choices:[]};
 try{var s=localStorage.getItem('tp_state');if(s){var p=JSON.parse(s);S.flags=p.flags||{};S.choices=p.choices||[]}}catch(e){}
 function sv(){try{localStorage.setItem('tp_state',JSON.stringify({flags:S.flags,choices:S.choices}))}catch(e){}}
 function ar(k,v){S.flags[k]=(S.flags[k]||0)+v;sv();upd()}function rr(k,v){S.flags[k]=Math.max(0,(S.flags[k]||0)-v);sv();upd()}
-var CC={ch01_elna:{label:'艾露娜的提案',opts:[{l:'接受协助 / 協力を受け入れる',r:{eruna:2},e:'学术协作者'},{l:'婉拒 / まだ誰も巻き込めない',r:{akane:1},e:'独自承担'}]},ch01_slave:{label:'籠の中の少女',opts:[{l:'无法忘记她 / 頭から離れない',r:{},e:'开启个人线'},{l:'无能为力 / どうにもできない',r:{},e:'暂缓'}]},ch01_alice_deal:{label:'Aliceとの取引',opts:[{l:'开始交易 / 取引を始める',r:{},e:'商业线启动'},{l:'先自己分析 / まずは分析',r:{},e:'独立摸索'}]},ch01_exam:{label:'考试公告后',opts:[{l:'与朱音对视点头 / 朱音と頷く',r:{akane:1},e:'朱音'},{l:'观察艾露娜 / エルナ観察',r:{eruna:1},e:'艾露娜'},{l:'思考攻略法 / 攻略法考える',r:{koyuki:1},e:'小雪'}]}};
+var CC={ch01_elna:{label:'艾露娜的提案',opts:[{l:'接受协助 / 協力を受け入れる',r:{eruna:2},e:'学术协作者'},{l:'婉拒 / まだ誰も巻き込めない',r:{akane:1},e:'独自承担'}]},ch01_slave:{label:'籠の中の少女',opts:[{l:'无法忘记她 / 頭から離れない',r:{},e:'开启个人线'},{l:'无能为力 / どうにもできない',r:{},e:'暂缓'}]},ch01_alice_deal:{label:'Aliceとの取引',opts:[{l:'开始交易 / 取引を始める',r:{},e:'商业线启动'},{l:'先自己分析 / まずは分析',r:{},e:'独立摸索'}]},ch01_exam:{label:'考试公告后',opts:[{l:'与朱音对视点头 / 朱音と頷く',r:{akane:1},e:'朱音'},{l:'观察艾露娜 / エルナ観察',r:{eruna:1},e:'艾露娜'},{l:'思考攻略法 / 攻略法考える',r:{koyuki:1},e:'小雪'}]}
+,pro_akane_lunch:{label:'食堂での朱音',opts:[{l:'「覚えてる。あの装置——」 正直に言う',r:{akane:3},e:'朱音+3 素直な再会'},{l:'「……悪い。あまり覚えてない」 でも礼を言う',r:{akane:1},e:'朱音+1 誠実な対応'},{l:'黙って彼女の背中を見送る',r:{},e:'中立 後日に持ち越し'}]}
+,ch01_lib_paper:{label:'論文の著者について',opts:[{l:'「……そうだ。俺が書いた」 —— 真実を打ち明ける',r:{akane:2},e:'朱音+2 信頼ルート開く'},{l:'「さあな。面白い論文だとは思うが」 —— はぐらかす',r:{akane:1},e:'朱音+1 警戒維持'},{l:'黙って彼女の目を見返す —— 判断を委ねる',r:{akane:2,eruna:1},e:'朱音+2 艾露娜+1 沈黙の共鳴'}]}
+,ch01_akane_train:{label:'朱音の訓練提案',opts:[{l:'「……わかった。教えてほしい」 —— 受け入れる',r:{akane:3},e:'朱音+3 訓練ルート確定'},{l:'「そこまでしてもらう理由は——」 —— 遠慮する',r:{akane:1},e:'朱音+1 やや距離を置く'},{l:'週に何回だ？ —— 実務的に確認',r:{akane:2},e:'朱音+2 対等な関係構築'}]}};
 
 var pls=document.querySelectorAll('.pn'),nis=document.querySelectorAll('.ni');
 nis.forEach(function(b){b.addEventListener('click',function(){
