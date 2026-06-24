@@ -1,9 +1,9 @@
 <div class="chc">
-<div class="cl">⚡ 選択肢 —— 食堂での朱音</div>
-<button class="cb a" data-c="pro_akane_lunch" data-o="0"><span class="lt">A</span>「覚えてる。……あの装置、自由研究のやつだろ」—— 正直に言う</button>
-<button class="cb b" data-c="pro_akane_lunch" data-o="1"><span class="lt">B</span>「……悪い。あまり覚えてない」—— でも礼を言う</button>
-<button class="cb c" data-c="pro_akane_lunch" data-o="2"><span class="lt">C</span>黙って彼女の背中を見送る —— まだ判断がつかない</button>
-<div class="ch">（選択後に取り消し可能 · 好感度に影響します）</div>
+<div class="cl">⚡ 选择肢 —— 食堂中的朱音</div>
+<button class="cb a" data-c="pro_akane_lunch" data-o="0"><span class="lt">A</span>「那个不用魔力分解水的装置」—— 叫住她，你记得</button>
+<button class="cb b" data-c="pro_akane_lunch" data-o="1"><span class="lt">B</span>「抱歉不太记得了，但谢谢你来搭话」—— 诚实但礼貌</button>
+<button class="cb c" data-c="pro_akane_lunch" data-o="2"><span class="lt">C</span>沉默地看着她走远 —— 现在还不知该说什么</button>
+<div class="ch">（选择后可撤销 · 影响朱音好感度与关系走向）</div>
 </div>
 
 ***

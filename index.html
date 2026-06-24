@@ -183,10 +183,16 @@ var S={flags:{},choices:[]};
 try{var s=localStorage.getItem('tp_state');if(s){var p=JSON.parse(s);S.flags=p.flags||{};S.choices=p.choices||[]}}catch(e){}
 function sv(){try{localStorage.setItem('tp_state',JSON.stringify({flags:S.flags,choices:S.choices}))}catch(e){}}
 function ar(k,v){S.flags[k]=(S.flags[k]||0)+v;sv();upd()}function rr(k,v){S.flags[k]=Math.max(0,(S.flags[k]||0)-v);sv();upd()}
-var CC={ch01_elna:{label:'艾露娜的提案',opts:[{l:'接受协助 / 協力を受け入れる',r:{eruna:2},e:'学术协作者'},{l:'婉拒 / まだ誰も巻き込めない',r:{akane:1},e:'独自承担'}]},ch01_slave:{label:'籠の中の少女',opts:[{l:'无法忘记她 / 頭から離れない',r:{},e:'开启个人线'},{l:'无能为力 / どうにもできない',r:{},e:'暂缓'}]},ch01_alice_deal:{label:'Aliceとの取引',opts:[{l:'开始交易 / 取引を始める',r:{},e:'商业线启动'},{l:'先自己分析 / まずは分析',r:{},e:'独立摸索'}]},ch01_exam:{label:'考试公告后',opts:[{l:'与朱音对视点头 / 朱音と頷く',r:{akane:1},e:'朱音'},{l:'观察艾露娜 / エルナ観察',r:{eruna:1},e:'艾露娜'},{l:'思考攻略法 / 攻略法考える',r:{koyuki:1},e:'小雪'}]}
-,pro_akane_lunch:{label:'食堂での朱音',opts:[{l:'「覚えてる。あの装置——」 正直に言う',r:{akane:3},e:'朱音+3 素直な再会'},{l:'「……悪い。あまり覚えてない」 でも礼を言う',r:{akane:1},e:'朱音+1 誠実な対応'},{l:'黙って彼女の背中を見送る',r:{},e:'中立 後日に持ち越し'}]}
-,ch01_lib_paper:{label:'論文の著者について',opts:[{l:'「……そうだ。俺が書いた」 —— 真実を打ち明ける',r:{akane:2},e:'朱音+2 信頼ルート開く'},{l:'「さあな。面白い論文だとは思うが」 —— はぐらかす',r:{akane:1},e:'朱音+1 警戒維持'},{l:'黙って彼女の目を見返す —— 判断を委ねる',r:{akane:2,eruna:1},e:'朱音+2 艾露娜+1 沈黙の共鳴'}]}
-,ch01_akane_train:{label:'朱音の訓練提案',opts:[{l:'「……わかった。教えてほしい」 —— 受け入れる',r:{akane:3},e:'朱音+3 訓練ルート確定'},{l:'「そこまでしてもらう理由は——」 —— 遠慮する',r:{akane:1},e:'朱音+1 やや距離を置く'},{l:'週に何回だ？ —— 実務的に確認',r:{akane:2},e:'朱音+2 対等な関係構築'}]}};
+var CC={
+ch01_elna:{label:'艾露娜的提案',opts:[{l:'接受协助——「協力を受け入れる」',r:{eruna:2},e:'学术协作者 · 艾露娜+2'},{l:'婉拒——「まだ誰も巻き込めない」',r:{akane:1},e:'独自承担 · 朱音+1'}]},
+ch01_slave:{label:'籠の中の少女',opts:[{l:'无法忘记她——「頭から離れない」',r:{},e:'开启个人线'},{l:'无能为力——「どうにもできない」',r:{},e:'暂缓'}]},
+ch01_alice_deal:{label:'与爱丽丝的交易',opts:[{l:'开始交易——「取引を始める」',r:{},e:'商业线启动'},{l:'先自己分析——「まずは分析」',r:{},e:'独立摸索'}]},
+ch01_exam:{label:'考试公告后',opts:[{l:'与朱音对视点头',r:{akane:1},e:'朱音+1'},{l:'观察艾露娜',r:{eruna:1},e:'艾露娜+1'},{l:'思考攻略法',r:{koyuki:1},e:'小雪+1'}]},
+pro_akane_lunch:{label:'食堂中的朱音',opts:[{l:'「那个不用魔力分解水的装置」——叫住她，你记得',r:{akane:3},e:'朱音+3 · 真诚的再会'},{l:'「抱歉不太记得了，但谢谢你搭话」——诚实但礼貌',r:{akane:1},e:'朱音+1 · 诚实的回应'},{l:'沉默地看着她走远——现在还不知该说什么',r:{},e:'中立 · 留到日后'}]},
+ch01_lib_paper:{label:'论文的作者是谁',opts:[{l:'「对。是我写的」——说出真相',r:{akane:2},e:'朱音+2 · 开启信任路线'},{l:'「谁知道呢。不过确实是篇有趣的论文」——不否认',r:{akane:1},e:'朱音+1 · 保持距离'},{l:'沉默地与她对视——让她自己判断',r:{akane:2,eruna:1},e:'朱音+2 艾露娜+1 · 沉默的共鸣'}]},
+ch01_akane_train:{label:'朱音的训练提议',opts:[{l:'「好。请教我」——坦率接受',r:{akane:3},e:'朱音+3 · 训练路线确定'},{l:'「做到这个地步的理由是——」——试着客气一下',r:{akane:1},e:'朱音+1 · 稍留距离'},{l:'「一周几次？」——务实确认',r:{akane:2},e:'朱音+2 · 对等关系'}]}
+};
+
 
 var pls=document.querySelectorAll('.pn'),nis=document.querySelectorAll('.ni');
 nis.forEach(function(b){b.addEventListener('click',function(){
