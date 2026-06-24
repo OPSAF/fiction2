@@ -6,7 +6,7 @@
 >
 > **状态**：已完成
 >
-> **关联文件**：[WIKI_Akane.md](./WIKI_Akane.md)（完整Wiki） | [03_CHARACTERS.md](./03_CHARACTERS.md)（简要版）
+> **关联文件**：[WIKI_Akane.md](./WIKI_Akane.md)（完整Wiki） | [03_CHARACTERS.md](./03_CHARACTERS.md)（简要版） | [DESIGN_Shiraha.md](./DESIGN_Shiraha.md)（真女主/邻座）
 
 ---
 

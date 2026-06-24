@@ -6,7 +6,7 @@
 >
 > **状态**：已完成
 >
-> **关联文件**：[11_CHARACTERS.md](./11_CHARACTERS.md)（简要版） | [10_ANCIENT_GODS.md](./10_ANCIENT_GODS.md)（神粒子血统） | [06_STORYLINES.md](./06_STORYLINES.md)（古神线）
+> **关联文件**：[11_CHARACTERS.md](./11_CHARACTERS.md)（简要版） | [10_ANCIENT_GODS.md](./10_ANCIENT_GODS.md)（神粒子血统） | [DESIGN_STORYLINES.md](./DESIGN_STORYLINES.md)（古神线）
 
 ---
 
