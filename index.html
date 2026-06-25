@@ -80,13 +80,12 @@ p{margin-bottom:1em;text-indent:2em}p.ni{text-indent:0}
 <div class="bd">
 <div class="sb" id="sb">
 <div class="sl">序章</div><button class="ni on" data-p="prologue">零の目覚め</button>
-<div class="sl">Chapter 01</div><button class="ni" data-p="ch01p1">Part 1 · 星導学園</button><button class="ni" data-p="ch01p2">Part 2 · 資本の涙</button><button class="ni" data-p="ch01p3">Part 3 · 星の兆し</button>
+<div class="sl">Chapter 01</div><button class="ni" data-p="ch01p1">Part 1 · 星導学園</button><button class="ni" data-p="ch01p2">Part 2 · 資本の涙</button>
 </div>
 <div class="mn" id="mn">
 <div class="pn on" id="p-prologue"><div class="loading">加载中...</div></div>
 <div class="pn" id="p-ch01p1"><div class="loading">加载中...</div></div>
 <div class="pn" id="p-ch01p2"><div class="loading">加载中...</div></div>
-<div class="pn" id="p-ch01p3"><div class="loading">加载中...</div></div>
 </div></div></div>
 <div id="pp"><button class="pc" onclick="P.hide()">✕</button><div class="pn"></div><div class="pt"></div><div class="pd"></div></div>
 <div id="tk" style="display:none"><div class="tt" id="tktitle" style="cursor:pointer">📊 観測記録</div><div id="tkc"></div><div style="font-size:8px;opacity:.4;margin-top:4px;cursor:pointer" id="tkclear">点击标题收起 · 点击此处清除记录</div></div>
@@ -104,8 +103,7 @@ var cache={};
 var panelDefs={
   prologue:{title:'序章 — 零の目覚め',subtitle:'「世界はコードでできている。ならば——」',files:['PROLOGUE/ep_00_zero.md','PROLOGUE/ep_01_hoshinomiya.md','PROLOGUE/ep_02_kakusei.md','PROLOGUE/ep_03_primary.md'],pgs:[0,2]},
   ch01p1:{title:'Chapter 01 Part 1 — 五人的交汇点',subtitle:'「一人じゃ——なかった。」',files:['chapter_01/part1/ep01.md','chapter_01/part1/ep02.md','chapter_01/part1/ep03.md','chapter_01/part1/ep04.md','chapter_01/part1/ep05.md','chapter_01/part1/ep06.md'],pgs:[0,3]},
-  ch01p2:{title:'Chapter 01 Part 2 — 資本の涙',subtitle:'「——给资本家上一课。」',files:['chapter_01/part2/ep07.md','chapter_01/part2/ep08.md','chapter_01/part2/ep09.md','chapter_01/part2/ep10.md'],pgs:[0,2]},
-  ch01p3:{title:'Chapter 01 Part 3 — 星の兆し',subtitle:'「——俺は、この一ヶ月で変わる。」',files:['chapter_01/part3/ep11.md','chapter_01/part3/ep12.md','chapter_01/part3/ep13.md','chapter_01/part3/ep14.md'],pgs:[0,2]}
+  ch01p2:{title:'Chapter 01 Part 2 — 資本の涙',subtitle:'「——给资本家上一课。」',files:['chapter_01/part2/ep07.md','chapter_01/part2/ep08.md','chapter_01/part2/ep09.md','chapter_01/part2/ep10.md'],pgs:[0,2]}
 };
 
 function md2html(md){
