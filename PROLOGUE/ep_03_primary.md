@@ -1,9 +1,9 @@
 <div class="chc">
-<div class="cl">⚡ 选择肢 —— 食堂中的朱音</div>
-<button class="cb a" data-c="pro_akane_lunch" data-o="0"><span class="lt">A</span>「那个不用魔力分解水的装置」—— 叫住她，你记得</button>
-<button class="cb b" data-c="pro_akane_lunch" data-o="1"><span class="lt">B</span>「抱歉不太记得了，但谢谢你来搭话」—— 诚实但礼貌</button>
-<button class="cb c" data-c="pro_akane_lunch" data-o="2"><span class="lt">C</span>沉默地看着她走远 —— 现在还不知该说什么</button>
-<div class="ch">（选择后可撤销 · 影响朱音好感度与关系走向）</div>
+<div class="cl">⚡ 选择肢 —— 虚空种来袭</div>
+<button class="cb a" data-c="pro_void_attack" data-o="0"><span class="lt">A</span>「白羽……」—— 在避难所里寻找白羽栞的身影</button>
+<button class="cb b" data-c="pro_void_attack" data-o="1"><span class="lt">B</span>「星ノ宮……」—— 回想朱音刚才那句"以后再说"的含义</button>
+<button class="cb c" data-c="pro_void_attack" data-o="2"><span class="lt">C</span>闭眼，在避难所的嘈杂中尝试联系终端 —— 确认自己的能力边界</button>
+<div class="ch">（选择后可撤销 · 影响后续关系走向与剧情分支）</div>
 </div>
 
 ***
@@ -14,7 +14,7 @@
 
 星導学園的图书馆比小镇的大了不止一个数量级。三百万册藏书，穹顶高到能装下三层楼的阅览区。下午的斜阳从彩色玻璃窗里落下来，把学术期刊区的地板染成暗金色。
 
-我的终端在家里——学校的公共终端需要排队。所以今天只能手动查。
+我的终端在家里——学校的公共终端需要排队。所以今天只能手动查。不过说实话，就算带了自己的终端来，在这种人多的地方也用不了——观测者效应会把它压成静默模式。
 
 走到物理期刊区。手指在排列整齐的脊背上滑过——《帝国魔導学会誌》《零粒子物理评论》《魔法场理论季刊》——停。抽出一本《零粒子物理评论》最新刊，翻到目录。
 

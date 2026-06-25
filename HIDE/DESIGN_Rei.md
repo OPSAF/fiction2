@@ -6,7 +6,7 @@
 >
 > **状态**：已完成
 >
-> **关联文件**：[11_CHARACTERS.md](./11_CHARACTERS.md)（简要版） | [05_TERMINAL_SYSTEM.md](./05_TERMINAL_SYSTEM.md)（终端系统） | [06_STORYLINES.md](./06_STORYLINES.md)（主线故事）
+> **关联文件**：[11_CHARACTERS.md](./11_CHARACTERS.md)（简要版） | [05_TERMINAL_SYSTEM.md](./05_TERMINAL_SYSTEM.md)（终端系统） | [DESIGN_STORYLINES.md](./DESIGN_STORYLINES.md)（主线故事）
 
 ---
 
